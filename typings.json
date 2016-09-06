@@ -1,0 +1,11 @@
+{
+  "name": "Angular-Typescript-Seed",
+  "dependencies": {
+    "mime": "registry:npm/mime#1.3.0+20160723033700"
+  },
+  "devDependencies": {},
+  "globalDependencies": {
+    "browser-sync": "registry:dt/browser-sync#0.0.0+20160524142403",
+    "gulp": "registry:dt/gulp#3.8.0+20160724062653"
+  }
+}
