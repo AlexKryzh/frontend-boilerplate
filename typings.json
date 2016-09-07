@@ -6,6 +6,11 @@
   "devDependencies": {},
   "globalDependencies": {
     "browser-sync": "registry:dt/browser-sync#0.0.0+20160524142403",
-    "gulp": "registry:dt/gulp#3.8.0+20160724062653"
+    "gulp": "registry:dt/gulp#3.8.0+20160724062653",
+    "gulp-help": "registry:dt/gulp-help#0.0.0+20160316155526",
+    "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
+    "node": "registry:dt/node#6.0.0+20160907103612",
+    "rimraf": "registry:dt/rimraf#0.0.0+20160317120654",
+    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526"
   }
 }

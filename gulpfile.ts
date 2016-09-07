@@ -1,5 +1,27 @@
-// /// <reference path="./typings/index.d.ts"/>
-// /// <reference path="./typings.d.ts"/>
+import * as gulp from 'gulp';
+import * as gulpHelp from 'gulp-help';
+import { readdirSync } from 'fs';
+global.tools = {};
+global.tools.gulp = gulpHelp(gulp, {description: '', hideEmpty: true});
+
+//Register tasks from tasks folder
+const tasks:string[] = readdirSync('./tools/tasks/').filter((task) => {
+    //filter just ts files
+    return task.indexOf('.ts') !== -1;
+});
+
+tasks.forEach((task) => {
+    require('./tools/tasks/' + task);
+});
+
+// import * as gulp from 'gulp';
+// import * as gulpHelp from 'gulp-help';
+// import * as util from 'gulp-util';
+// import * as runSequence from 'run-sequence';
+
+//import { clean } from './tools/tasks/clean';
+
+
 
 // import { readdirSync } from 'fs';
 // import * as gulp from 'gulp';
