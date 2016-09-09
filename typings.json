@@ -13,8 +13,11 @@
     "gulp-load-plugins": "registry:dt/gulp-load-plugins#0.0.0+20160316155526",
     "gulp-protractor": "registry:dt/gulp-protractor#1.0.0+20160316155526",
     "gulp-util": "registry:dt/gulp-util#0.0.0+20160316155526",
+    "ng2": "github:gdi2290/typings-ng2/ng2.d.ts#32998ff5584c0eab0cd9dc7704abb1c5c450701c",
     "node": "registry:dt/node#6.0.0+20160907103612",
     "rimraf": "registry:dt/rimraf#0.0.0+20160317120654",
-    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526"
+    "run-sequence": "registry:dt/run-sequence#0.0.0+20160316155526",
+    "systemjs": "registry:dt/systemjs#0.19.29+20160702105636",
+    "zone.js": "registry:dt/zone.js#0.0.0+20160316155526"
   }
 }
