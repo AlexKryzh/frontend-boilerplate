@@ -1,0 +1,71 @@
+@import 'fonts';
+@import 'icons';
+@import 'variables';
+@import 'bootstrap';
+@import 'type';
+@import 'animations';
+@import 'transformations';
+@import 'loading';
+
+body {
+    padding-top: 70px;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+.hide-overflow{
+    overflow: hidden;
+}
+
+.navbar-shadow{
+    box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+
+.btn-favorite{
+    background-color: $gold;
+    border-color: $gold-dark;
+    .icon{
+        color: #fff;
+    }
+    &:hover{
+        background-color: $gold-dark;
+        border-color: $gold-darker;
+    }
+}
+
+.modal-dialog{
+    height: calc(100% - 40px);
+    overflow-y: auto;
+    .modal-body {
+        min-height: 200px;
+        max-height: calc(100vh - 200px);
+        overflow-y: auto;
+    }
+}
+
+summary{
+    &:focus{
+        outline: none;
+    }
+}
+
+.modal-status-open{
+    display: block;
+    background-color: rgba(0,0,0,.8);
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+footer{
+    margin: 20px 0;
+}
+
+p {
+    @include font-size(14px);
+}

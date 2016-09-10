@@ -12,7 +12,7 @@ $.gulp.task('styles', 'Process style files', ['styles:inline:font'],() =>{
          .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.init()))
          .pipe($.plugin.sass(sass_settings))
          //.on('error', handleErrors)
-         .pipe($.plugin.if($.prod, $.plugin.stripCssComments({'preserve' : false})))
+         //.pipe($.plugin.if($.prod, $.plugin.stripCssComments({'preserve' : false})))
         .pipe($.plugin.autoprefixer($.config.styles.autoprefixer))
         .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.write($.prod ? './' : null)))
         .pipe($.plugin.if($.prod, $.plugin.uncss({ html: [$.config.templates.src, $.config.templates.index, $.config.modules.templates]})))

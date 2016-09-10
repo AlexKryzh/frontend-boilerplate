@@ -5,12 +5,12 @@ $.gulp.task('templates', 'Process template files',() =>{
         .pipe($.plugin.htmlhint($.config.templates.hint))
         .pipe($.plugin.htmlhint.reporter())
         .pipe($.plugin.if($.prod, $.plugin.htmlmin({collapseWhitespace: true})))
-        .pipe($.plugin.angularTemplatecache({
-            standalone: true,
-            filename: 'app_tpl.js',
-            module: 'app.templates',
-            moduleSystem: 'Browserify'
-        }))
+        // .pipe($.plugin.angularTemplatecache({
+        //     standalone: true,
+        //     filename: 'app_tpl.js',
+        //     module: 'app.templates',
+        //     moduleSystem: 'Browserify'
+        // }))
         .pipe($.gulp.dest($.config.templates.dest))
 });
 
