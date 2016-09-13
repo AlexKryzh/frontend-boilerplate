@@ -4,7 +4,7 @@ $.gulp.task('scripts', 'Process scripts files', () =>{
 
     let tsProject = $.plugin.typescript.createProject('src/tsconfig.json', {
         declaration: true,
-        noExternalResolve: true
+        noExternalResolve: false
     });
 
     let tsResult = tsProject.src()
