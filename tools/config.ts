@@ -71,7 +71,7 @@ export const config = {
         src: 'src/modules/',
         styles: 'src/modules/**/*.scss',
         templates: 'src/modules/**/*.htm*',
-        main: 'app.ts',
+        main: 'src/modules/app/index.ts',
         scripts: 'src/modules/**/*.ts',
         tests: '!src/modules/**/*_spec.js',
         watch: 'src/modules/**/*.js'
