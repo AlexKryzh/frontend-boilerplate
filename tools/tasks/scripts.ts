@@ -40,7 +40,7 @@ namespace Bundler{
             const sourceMapLocation = $.prod ? './' : '';
 
             return stream.on('error', function (err:any) {
-                    $.plugin.util.log(err.toString());
+                    //$.plugin.util.log(err.toString());
                     this.emit('end');
                 })
                 .pipe(source(this.path))
@@ -62,14 +62,13 @@ namespace Bundler{
 
 }
 
-// $.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
-$.gulp.task('scripts', 'Process scripts files', () =>{
+$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
     return new Bundler.Bundle('app').build();
 });
 
-// $.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (path: any) =>{
-//     return path === 'app' ? false : new Bundler.Bundle(path).build();
-//  }));
+$.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (path: any) =>{
+    return path === 'app' || path === 'stylebook' ? false : new Bundler.Bundle(path).build();
+ }));
 
 // var $ = global.tools;
 
