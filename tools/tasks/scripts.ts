@@ -15,6 +15,7 @@ namespace Bundler{
         constructor (public ModuleName: string){
             this.name = ModuleName;
             this.path = $.config.modules.src + ModuleName + '/index.ts';
+            $.plugin.util.log($.plugin.util.colors.green(`Bundle ${this.path}`));
             this.sourcemap = !$.prod || $.config.scripts.sourcemap;
             this.bundler = browserify({
                 //entries: [$.config.scripts.dev + this.path],
@@ -62,39 +63,15 @@ namespace Bundler{
 
 }
 
-// $.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
-$.gulp.task('scripts', 'Process scripts files', () =>{
+$.gulp.task('scripts', 'Process scripts files', ['scripts:modules'],() =>{
     return new Bundler.Bundle('app').build();
 });
 
-// $.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (path: any) =>{
-//     return path === 'app' ? false : new Bundler.Bundle(path).build();
-//  }));
-
-// var $ = global.tools;
-
-// $.gulp.task('scripts', 'Process scripts files', ['scripts:config'], () =>{
-
-//     let tsProject = $.plugin.typescript.createProject('src/tsconfig.json', {
-//         declaration: true,
-//         noExternalResolve: false
-//     });
-
-//     let tsResult = tsProject.src()
-//     .pipe($.plugin.typescript(tsProject));
- 
-//     return tsResult.js.pipe($.gulp.dest($.config.scripts.dest));
-
-//     // return $.gulp.src()   //'./src/scripts/**/*.ts'
-//     //     .pipe($.plugin.tslint({
-//     //         formatter: 'verbose'
-//     //     }))
-//     //     .pipe($.plugin.tslint.report())
-//     //     .pipe($.plugin.typescript(tsProject))
-//     //     .pipe($.gulp.dest('dist/scripts/'));
-// });
-
-// $.gulp.task('scripts:config', () =>{
-//     $.gulp.src($.config.scripts.config)
-//     .pipe($.gulp.dest($.config.scripts.dest));
-// });
+$.gulp.task('scripts:modules', false, $.plugin.folders($.config.modules.src, (path: any) =>{
+    if(path !== 'app'){
+        return new Bundler.Bundle(path).build();
+    }else{
+        //should return empty stream
+        return false;
+    }
+ }));
