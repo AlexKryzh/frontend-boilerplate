@@ -12,6 +12,7 @@ $.gulp.task('icons', 'Create font with custom icons', () =>{
         log: function(){}
     }))
     .on('glyphs', function(glyphs:any, options:any) {
+        console.log('*** ICONS ***');
         $.gulp.src($.config.icons.template)
             .pipe($.plugin.consolidate('lodash', {
                 glyphs: glyphs,
