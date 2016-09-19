@@ -1,5 +1,4 @@
-import { readdirSync, statSync } from 'fs';
-import { join } from 'path';
+import { Files } from '../utils/files';
 var $ = global.tools;
 const browserify = require('browserify');
 const tsify = require('tsify');
@@ -66,16 +65,11 @@ namespace Bundler{
 }
 
 $.gulp.task('scripts', 'Process scripts files',() =>{
-
-    //get modules names except app
-    let modules = readdirSync($.config.modules.src).filter(function(file) {
-      return file === 'app' ? false : statSync(join($.config.modules.src, file)).isDirectory();
-    });
+    let modules = new Files.Folder($.config.modules.src).get(['app']);
 
     for (let ModuleName of modules) {
         new Bundler.Bundle(ModuleName).build();
     }
 
     return new Bundler.Bundle('app').build();
-
 });
