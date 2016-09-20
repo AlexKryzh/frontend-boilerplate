@@ -1,10 +1,24 @@
 import { Files } from '../utils/files';
 var $ = global.tools;
-const browserify = require('browserify');
-const tsify = require('tsify');
-const watchify = require('watchify');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
+//var inliner = require('../utils/inliner');
+var browserify = require('browserify');
+var tsify = require('tsify');
+var watchify = require('watchify');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
+
+var ng2TemplateParser = require('gulp-inline-ng2-template/parser');
+var through = require('through2');
+var options = {target: 'es5', useRelativePaths: true};
+
+function inliner(file: any) {
+  return through(function (buf: any, enc: any, next: any){
+    ng2TemplateParser({contents: buf, path: file}, options)((err: any, result: any) => {
+      this.push(result);
+      process.nextTick(next);
+    });
+  });
+}
 
 namespace Bundler{
     export class Bundle {
@@ -36,7 +50,7 @@ namespace Bundler{
         build(){
             const stream = this.bundler
                     .plugin(tsify, {})
-                    // .transform('brfs', {})
+                    .transform(inliner)
                     .bundle();
 
             const sourceMapLocation = $.prod ? './' : '';

@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-shadow">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header" ng-class="{'navbar-shadow' : openNav}">
+      <button type="button" class="navbar-toggle collapsed" ng-click="switchNav()">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand">SiteName</span>
+    </div>
+
+    <div class="collapse navbar-collapse" ng-class="{'in animation-fade-in' : openNav}" id="navbar">
+      <ul class="nav navbar-nav">
+        <li ng-class="{active : page.state.name === 'home'}">
+          <a ui-sref="home">{{ "header.menu.home" | translate }}</a>
+        </li>
+        <li ng-class="{active : page.state.name === 'items'}">
+          <a ui-sref="items">{{ "header.menu.items" | translate }}</a>
+        </li>
+        <li ng-class="{active : page.state.name === 'styleguide'}">
+          <a ui-sref="styleguide">{{ "header.menu.style_guide" | translate }}</a>
+        </li>
+      </ul>
+      <languages class="nav navbar-nav navbar-right"></languages>
+    </div>
+  </div>
+</nav>
