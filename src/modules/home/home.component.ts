@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'sd-home',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: 'home.component.html',
+    styleUrls: ['home.component.css']
 })
 export class HomeComponent { }
