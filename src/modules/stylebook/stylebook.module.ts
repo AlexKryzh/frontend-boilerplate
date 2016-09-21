@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { StylebookComponent } from './stylebook.component';
 
+import { StylebookRouting } from './stylebook.routing';
+
 @NgModule({
-  declarations: [StylebookComponent],
-  exports: [StylebookComponent]
+    imports: [ StylebookRouting ],
+    declarations: [StylebookComponent ],
+    exports: [StylebookComponent]
 })
 export class StylebookModule { }
