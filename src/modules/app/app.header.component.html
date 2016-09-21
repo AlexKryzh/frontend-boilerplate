@@ -14,16 +14,19 @@
     <div class="collapse navbar-collapse" ng-class="{'in animation-fade-in' : openNav}" id="navbar">
       <ul class="nav navbar-nav">
         <li ng-class="{active : page.state.name === 'home'}">
-          <a ui-sref="home">{{ "header.menu.home" | translate }}</a>
+            <a routerLink="/" routerLinkActive="active">Home</a>
+          <!-- <a ui-sref="home">{{ "header.menu.home" | translate }}</a> -->
         </li>
         <li ng-class="{active : page.state.name === 'items'}">
-          <a ui-sref="items">{{ "header.menu.items" | translate }}</a>
+            <a routerLink="/items" routerLinkActive="active">Items</a>
+          <!-- <a ui-sref="items">{{ "header.menu.items" | translate }}</a> -->
         </li>
         <li ng-class="{active : page.state.name === 'styleguide'}">
-          <a ui-sref="styleguide">{{ "header.menu.style_guide" | translate }}</a>
+            <a routerLink="/stylebook" routerLinkActive="active">StyleBook</a>
+          <!-- <a ui-sref="styleguide">{{ "header.menu.style_guide" | translate }}</a> -->
         </li>
       </ul>
-      <languages class="nav navbar-nav navbar-right"></languages>
+      <!-- <languages class="nav navbar-nav navbar-right"></languages> -->
     </div>
   </div>
 </nav>
