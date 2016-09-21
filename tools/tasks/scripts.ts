@@ -79,11 +79,12 @@ namespace Bundler{
 }
 
 $.gulp.task('scripts', 'Process scripts files',() =>{
-    let modules = new Files.Folder($.config.modules.src).get(['app']);
+    // COMMENT: We will create just unique bundle until we will find the way to load other bundles in router
+    // let modules = new Files.Folder($.config.modules.src).get(['app']);
 
-    for (let ModuleName of modules) {
-        new Bundler.Bundle(ModuleName).build();
-    }
+    // for (let ModuleName of modules) {
+    //     new Bundler.Bundle(ModuleName).build();
+    // }
 
     return new Bundler.Bundle('app').build();
 });
