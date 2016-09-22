@@ -5,6 +5,7 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 
 import { AppComponent }  from './app.component';
 import { AppHeaderComponent }  from './app.header.component';
+import { AppFooterComponent }  from './app.footer.component';
 import { AppPageNotFoundComponent } from './app.pagenotfound.component.ts';
 import { HomeModule } from '../home/home.module';
 import { StylebookModule } from '../stylebook/stylebook.module';
@@ -16,13 +17,13 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         HttpModule, 
         TranslateModule.forRoot({ 
           provide: TranslateLoader,
-          useFactory: (http: Http) => new TranslateStaticLoader(http, '/assets/i18n', '.json'),
+          useFactory: (http: Http) => new TranslateStaticLoader(http, '/resources/locales', '.json'),
           deps: [Http]
         }), 
         HomeModule, 
         StylebookModule, 
         AppRouting ],
-  declarations: [ AppComponent, AppHeaderComponent, AppPageNotFoundComponent ],
+  declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent ],
   exports: [HttpModule, TranslateModule],
   providers: [AppRoutingProviders],
   bootstrap: [ AppComponent ]
