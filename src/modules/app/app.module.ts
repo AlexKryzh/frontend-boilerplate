@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Http, HttpModule } from '@angular/http';
-import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
+import { TranslatePipe, TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
 import { AppComponent }  from './app.component';
 import { AppHeaderComponent }  from './app.header.component';
@@ -17,15 +17,15 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         HttpModule, 
         TranslateModule.forRoot({ 
           provide: TranslateLoader,
-          useFactory: (http: Http) => new TranslateStaticLoader(http, '/resources/locales', '.json'),
+          useFactory: (http: Http) => new TranslateStaticLoader(http, '/resources/translation', '.json'),
           deps: [Http]
         }), 
         HomeModule, 
         StylebookModule, 
         AppRouting ],
-  declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent ],
-  exports: [HttpModule, TranslateModule],
-  providers: [AppRoutingProviders],
-  bootstrap: [ AppComponent ]
+     declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent],
+    exports: [HttpModule, TranslateModule, TranslatePipe],
+    providers: [ AppRoutingProviders],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule { }
