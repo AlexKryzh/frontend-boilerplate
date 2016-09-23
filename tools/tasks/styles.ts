@@ -10,7 +10,7 @@ const sass_settings =  {
 $.gulp.task('styles', 'Process style files', ['styles:inline:font'],() =>{
     return $.gulp.src($.config.styles.src)
          .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.init()))
-         .pipe($.plugin.sass(sass_settings))
+         .pipe($.plugin.sass(sass_settings).on('error', $.plugin.sass.logError))
          //.on('error', handleErrors)
          //.pipe($.plugin.if($.prod, $.plugin.stripCssComments({'preserve' : false})))
         .pipe($.plugin.autoprefixer($.config.styles.autoprefixer))
@@ -22,7 +22,7 @@ $.gulp.task('styles', 'Process style files', ['styles:inline:font'],() =>{
          .pipe($.gulp.dest($.config.styles.dest));
 });
 
-$.gulp.task('styles:inline:font', false, () =>{
+$.gulp.task('styles:inline:font', false, ['styles:modules'], () =>{
     return $.gulp.src($.config.fonts.icons)
         .pipe($.plugin.inlineFonts({
           name: $.config.icons.fontname,
@@ -32,6 +32,20 @@ $.gulp.task('styles:inline:font', false, () =>{
         }))
         .pipe($.plugin.rename($.config.styles.fonts))
         .pipe($.gulp.dest($.config.styles.dev));
+ });
+
+$.gulp.task('styles:modules', false, () =>{
+    return $.gulp.src($.config.modules.styles)
+        .pipe($.plugin.tap(function(file: any, t: any) {
+            $.plugin.util.log($.plugin.util.colors.green(`Compiling ${file.path.replace(file.base, '')}`));
+        }))
+        .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.init()))
+        .pipe($.plugin.sass(sass_settings).on('error', $.plugin.sass.logError))
+        .pipe($.plugin.autoprefixer($.config.styles.autoprefixer))
+        .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.write($.prod ? './':null)))
+        .pipe($.plugin.if($.prod, $.plugin.csso()))
+        //.pipe($.plugin.if($.prod, $.plugin.stripCssComments({'preserve' : false})))
+        .pipe($.gulp.dest($.config.modules.src));
  });
 
 // $.gulp.task('styles:modules', false, $.plugin.folders($.config.modules.src, (module:any) =>{

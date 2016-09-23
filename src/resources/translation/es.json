@@ -54,6 +54,7 @@
     },
     "common": {
         "close": "cerrar",
+        "language": "Idioma",
         "remove": "borrar",
         "page": "Página",
         "of": "de"
