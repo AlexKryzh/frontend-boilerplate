@@ -1,7 +1,7 @@
 {
     "directives":{
-        "language-select":{
-            "Language": "Language"
+        "languages":{
+            "Language": "language"
         },
         "filter_options":{
             "sorting":{
@@ -54,6 +54,7 @@
     },
     "common": {
         "close": "close",
+        "language": "language",
         "remove": "remove",
         "page": "Page",
         "of": "of"
