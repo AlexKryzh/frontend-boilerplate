@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    templateUrl: 'home.component.html',
+    templateUrl: 'items.component.html',
     styleUrls: [ 'home.component.css' ]
 })
-export class HomeComponent { }
+export class ItemsComponent { }

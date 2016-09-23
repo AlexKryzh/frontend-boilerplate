@@ -3,10 +3,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { AppPageNotFoundComponent } from './app.pagenotfound.component.ts';
 import { HomeRoutes } from '../home/index';
+import { ItemsRoutes } from '../items/index';
 import { StylebookRoutes } from '../stylebook/index';
 
 const routes: Routes = [
     ...StylebookRoutes,
+    ...ItemsRoutes,
     ...HomeRoutes,
     { path: '**', component: AppPageNotFoundComponent }
 ];
