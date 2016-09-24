@@ -30,7 +30,7 @@ namespace Bundler{
         constructor (public ModuleName: string){
             this.name = ModuleName;
             this.path = $.config.modules.src + ModuleName + '/index.ts';
-            $.plugin.util.log($.plugin.util.colors.green(`Bundle ${this.path}`));
+            $.plugin.util.log(`Processing '`+ $.plugin.util.colors.yellow(`${this.path.replace('src/', '')}`) + `'...`);
             this.sourcemap = !$.prod || $.config.scripts.sourcemap;
             this.bundler = browserify({
                 //entries: [$.config.scripts.dev + this.path],
@@ -43,7 +43,7 @@ namespace Bundler{
                 this.bundler = watchify(this.bundler);
                 this.bundler.on('update', () => {
                     this.build();
-                    $.plugin.util.log($.plugin.util.colors.green(`Rebundle ${this.path}`));
+                    $.plugin.util.log(`Processing '`+ $.plugin.util.colors.yellow(`${this.path.replace('src/', '')}`) + `'...`);
                 });
             }
         }
