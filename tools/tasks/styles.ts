@@ -37,7 +37,7 @@ $.gulp.task('styles:inline:font', false, ['styles:modules'], () =>{
 $.gulp.task('styles:modules', false, () =>{
     return $.gulp.src($.config.modules.styles)
         .pipe($.plugin.tap(function(file: any, t: any) {
-            $.plugin.util.log($.plugin.util.colors.green(`Compiling ${file.path.replace(file.base, '')}`));
+            $.plugin.util.log(`Processing '`+ $.plugin.util.colors.yellow(`modules/${file.path.replace(file.base, '')}`) + `'...`);
         }))
         .pipe($.plugin.if(createSourcemap, $.plugin.sourcemaps.init()))
         .pipe($.plugin.sass(sass_settings).on('error', $.plugin.sass.logError))
