@@ -85,23 +85,22 @@ export const config = {
         dest: 'src/fonts'
     },
     constants: {
-        tpl: 'tools/utils/constant.tpl.ejs',
-        name: 'constants.ts',
-        dest: 'src/scripts/settings',
+        src: 'src/modules/app/app.config.ts',
+        dest: 'src/modules/app/',
         properties: {
             'cache_buster': '',
             'localizations': [
                 {
-                    code: 'es_es',
+                    code: 'es',
                     name: 'Español'
                 },
                 {
-                    code: 'en_us',
+                    code: 'en',
                     name: 'English',
-                    locale: '/resources/locale/en-us.js'
+                    locale: '/resources/locale/en.js'
                 }
             ],
-            'defaultLocalization': 'en_us'
+            'defaultLocalization': 'en'
         }
     },
     images: {
