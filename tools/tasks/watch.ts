@@ -12,7 +12,6 @@ $.gulp.task('watch', 'Watch changes, relaunch tasks and reload browser', ['serve
     $.gulp.watch($.config.fonts.icons,   ['styles:inline:font']);
     $.gulp.watch($.config.modules.styles,   ['styles:modules']);
     $.gulp.watch($.config.styles.src,   ['styles']);
-    $.gulp.watch([$.config.config, $.config.constants.tpl],   ['constants']);
     //$.gulp.watch($.config.modules.templates,   ['templates:modules']);
     $.gulp.watch($.config.templates.src,   ['templates']);
     //$.gulp.watch([$.config.scripts.src, $.config.scripts.modules],   ['scripts']);
