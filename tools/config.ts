@@ -50,8 +50,8 @@ export const config = {
         data: 'faviconData.json'
     },
     mocks: {
-        src: 'src/resources/mocks/*.json',
-        dest: 'dist/resources/mocks',
+        src: 'src/api/**/*.json',
+        dest: 'dist/api/',
         images: {
             src: 'src/images/mocks/**/*',
             dest: 'dist/images/mocks'
