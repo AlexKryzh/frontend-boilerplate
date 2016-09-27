@@ -1,1 +1,13 @@
-<p>items</p>
+<section class="items">
+    <header>
+        <h1>{{ "page.items.title" | translate }}</h1>
+    </header>
+    <ul ng-hide="items.length === 0" class="row items" itemscope itemtype="http://schema.org/ItemList">
+        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of items">
+            <span>{{ item.title }}</span>
+            <!-- <item></item> -->
+        </li>
+    </ul>
+    <footer>
+    </footer>
+</section>

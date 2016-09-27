@@ -7,14 +7,14 @@ import { ItemsService } from './items.service';
 })
 export class ItemsComponent {
     errorMessage: string;
-    heroes: any;
+    items: any;
     mode = 'Observable';
     constructor (private itemsService: ItemsService) {}
     ngOnInit() { this.getItems(); }
     getItems() {
         this.itemsService.getItems()
                      .subscribe(
-                       heroes => this.heroes = heroes,
+                       items => this.items = items,
                        error =>  this.errorMessage = <any>error);
     }
 }
