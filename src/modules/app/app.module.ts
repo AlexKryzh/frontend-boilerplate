@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
-import { CONFIG } from './app.config';
+import { ConfigService } from './app.config.service';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './app.header.component';
 import { AppFooterComponent } from './app.footer.component';
@@ -29,7 +29,7 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         AppRouting ],
      declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
     exports: [ HttpModule, TranslateModule ],
-    providers: [ AppRoutingProviders ],
+    providers: [ AppRoutingProviders, ConfigService ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
