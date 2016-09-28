@@ -1,4 +1,5 @@
-import { NgModule }            from '@angular/core';
+import { NgModule,
+         ModuleWithProviders } from '@angular/core';
 import { CommonModule }        from '@angular/common';
 import { TranslateModule } from 'ng2-translate';
 
@@ -7,4 +8,11 @@ import { TranslateModule } from 'ng2-translate';
     declarations: [ ],
     exports: [ CommonModule, TranslateModule ]
 })
-export class SharedModule { }
+export class SharedModule {
+    static forRoot(): ModuleWithProviders {
+        return {
+          ngModule: SharedModule,
+          providers: [ TranslateModule ]
+        };
+    }
+}

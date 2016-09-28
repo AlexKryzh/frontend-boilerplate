@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
-import { ConfigService } from './app.config.service';
+import { SharedModule } from '../shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppHeaderComponent } from './app.header.component';
 import { AppFooterComponent } from './app.footer.component';
@@ -26,10 +26,12 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         HomeModule,
         ItemsModule,
         StylebookModule,
-        AppRouting ],
+        AppRouting,
+        SharedModule.forRoot()
+      ],
      declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
     exports: [ HttpModule, TranslateModule ],
-    providers: [ AppRoutingProviders, ConfigService ],
+    providers: [ AppRoutingProviders ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }

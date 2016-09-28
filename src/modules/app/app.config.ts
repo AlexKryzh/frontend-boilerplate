@@ -1,1 +1,0 @@
-export const CONFIG: any = {"cache_buster":"","localizations":[{"code":"es","name":"Español"},{"code":"en","name":"English","locale":"/resources/locale/en.js"}],"defaultLocalization":"en","development":true,"mocks":true,"apiUrl":"/"}
