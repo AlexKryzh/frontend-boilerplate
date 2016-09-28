@@ -85,22 +85,23 @@ export const config = {
         dest: 'src/fonts'
     },
     constants: {
-        src: 'src/modules/app/app.config.ts',
-        dest: 'src/modules/app/',
+        src: 'src/modules/shared/config.ts',
+        dest: 'src/modules/shared/',
         properties: {
             'cache_buster': '',
-            'localizations': [
-                {
-                    code: 'es',
-                    name: 'Español'
-                },
+            //first language it is a default language
+            'languages': [
                 {
                     code: 'en',
                     name: 'English',
                     locale: '/resources/locale/en.js'
+                },
+                {
+                    code: 'es',
+                    name: 'Español',
+                    locale: '/resources/locale/es.js'
                 }
-            ],
-            'defaultLocalization': 'en'
+            ]
         }
     },
     images: {
