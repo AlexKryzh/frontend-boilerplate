@@ -9,7 +9,9 @@ $.gulp.task('dev', 'Create development distribution app', ['clean'], (cb:any)=> 
             'mocks',
             'favicon',
             'images',
-            'fonts',
+            'fonts'
+        ],
+        [
             'templates',
             'config',
             'locales',
