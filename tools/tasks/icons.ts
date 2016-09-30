@@ -2,6 +2,9 @@ var $ = global.tools;
 
 $.gulp.task('icons', 'Create font with custom icons', () =>{
     $.gulp.src($.config.icons.src)
+    .pipe($.plugin.tap(function(file: any, t: any) {
+        $.plugin.util.log(`Processing '`+ $.plugin.util.colors.yellow(`images/icons/${file.path.replace(file.base, '')}`) + `'...`);
+    }))
     .pipe($.plugin.changed($.config.icons.dest))
     .pipe($.plugin.iconfont({
         fontName: $.config.icons.fontname,
