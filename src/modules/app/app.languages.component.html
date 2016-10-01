@@ -1,11 +1,10 @@
-<ul id="languages">
+
       <li id="languages-label">
           <a><strong>{{"language" | translate}}:</strong></a>
       </li>
       <li *ngFor="let language of languages">
-        {{language.name}}
+        <a href="#">{{language.name}}</a>
       </li>
 <!--       <li ng-repeat="language in languages" ng-class="{'active': language.code === current}">
           <a href="" ng-class="language.code" ng-click="changeLanguage(language.code)" ng-bind="language.name"></a>
       </li> -->
-</ul>
