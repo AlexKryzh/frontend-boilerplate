@@ -5,6 +5,7 @@ import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-tra
 
 import { SharedModule } from '../shared/shared.module';
 import { AppComponent } from './app.component';
+import { AppLoadingComponent } from './app.loading.component';
 import { AppHeaderComponent } from './app.header.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppLanguagesComponent } from './app.languages.component';
@@ -29,7 +30,7 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         AppRouting,
         SharedModule.forRoot()
       ],
-     declarations: [ AppComponent, AppHeaderComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
+     declarations: [ AppComponent, AppHeaderComponent, AppLoadingComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
     exports: [ HttpModule, TranslateModule ],
     providers: [ AppRoutingProviders ],
     bootstrap: [ AppComponent ]
