@@ -1,1 +1,1 @@
-export const CONFIG: any = {"cache_buster":"","languages":[{"code":"en","name":"English","locale":"/resources/locale/en.js"},{"code":"es","name":"Español","locale":"/resources/locale/es.js"}],"development":true,"mocks":false,"apiUrl":"/"}
+export const CONFIG: any = {"cache_buster":"","languages":[{"code":"en","name":"English","locale":"/resources/locale/en.js"},{"code":"es","name":"Español","locale":"/resources/locale/es.js"}],"development":true,"mocks":true,"apiUrl":"/"}
