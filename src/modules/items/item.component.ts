@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ItemsService } from './items.service';
 
 @Component({
@@ -6,10 +6,10 @@ import { ItemsService } from './items.service';
     templateUrl: 'item.component.html'
 })
 export class ItemComponent {
-    errorMessage: string;
-    items: any;
-    mode = 'Observable';
-    constructor (private itemsService: ItemsService) {}
+    @Input() item: any;
+    constructor (private itemsService: ItemsService) {
+        console.log(this.item);
+    }
     // ngOnInit() { this.getItems(); }
     // getItems() {
     //     this.itemsService.getItems()
