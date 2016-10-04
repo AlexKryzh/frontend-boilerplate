@@ -6,7 +6,7 @@
         <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of items">
             <!-- <span>{{ item.title }}</span> -->
             <article class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
-                <item data="item"></item>
+                <item [item]="item"></item>
             </article>
         </li>
     </ul>

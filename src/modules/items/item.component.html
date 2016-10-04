@@ -1,5 +1,7 @@
-<img class="image thumbnail" itemprop="image" ng-src="{{::data.image}}" alt="{{::data.title}}" default-image="/images/default.svg" />
-<h1>
+<img class="image thumbnail" itemprop="image" [src]="item.image" [alt]="item.title" />
+<!-- <img default-image="/images/default.svg" /> -->
+<h1 [innerText]="item.title"></h1>
+<!-- <h1>
     <button class="btn btn-md" ng-class="{'btn-favorite animation-rubber': data.favorite === true, 'btn-default': data.favorite !== true}" ng-click="switchFavorite(data)" title="{{ data.favorite ? 'page.items.favorite_remove' : 'page.items.favorite_add' | translate }}"><span class="icon icon-star"></span></button> 
     <span itemprop="name">{{::data.title}}</span>
 </h1>
@@ -9,4 +11,4 @@
 <details class="description" itemprop="description"><summary>{{ "directives.item.show_description" | translate }}</summary>{{::data.description}}</details>
 <span class="email" itemscope itemtype="http://schema.org/Person">
     <span itemprop="email">{{::data.email}}</span>
-</span>
+</span> -->
