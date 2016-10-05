@@ -7,9 +7,7 @@ import { ItemsService } from './items.service';
 })
 export class ItemComponent {
     @Input() item: any;
-    constructor (private itemsService: ItemsService) {
-        console.log(this.item);
-    }
+    constructor () {}
     // ngOnInit() { this.getItems(); }
     // getItems() {
     //     this.itemsService.getItems()

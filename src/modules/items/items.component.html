@@ -4,7 +4,6 @@
     </header>
     <ul ng-hide="items.length === 0" class="row items" itemscope itemtype="http://schema.org/ItemList">
         <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of items">
-            <!-- <span>{{ item.title }}</span> -->
             <article class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
                 <item [item]="item"></item>
             </article>

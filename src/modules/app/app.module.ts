@@ -9,6 +9,7 @@ import { AppLoadingComponent } from './app.loading.component';
 import { AppHeaderComponent } from './app.header.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppLanguagesComponent } from './app.languages.component';
+import { ImageFallbackDirective } from './app.image.fallback.directive';
 import { AppPageNotFoundComponent } from './app.pagenotfound.component.ts';
 import { HomeModule } from '../home/home.module';
 import { ItemsModule } from '../items/items.module';
@@ -30,7 +31,7 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         AppRouting,
         SharedModule.forRoot()
       ],
-     declarations: [ AppComponent, AppHeaderComponent, AppLoadingComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
+     declarations: [ AppComponent, AppHeaderComponent, AppLoadingComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent, ImageFallbackDirective ],
     exports: [ HttpModule, TranslateModule ],
     providers: [ AppRoutingProviders ],
     bootstrap: [ AppComponent ]
