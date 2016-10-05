@@ -13,8 +13,8 @@ export class ItemsComponent {
     ngOnInit() { this.getItems(); }
     getItems() {
         this.itemsService.getItems()
-                     .subscribe(
-                       items => this.items = items,
-                       error =>  this.errorMessage = <any>error);
+             .subscribe(
+               items => this.items = items,
+               error =>  this.errorMessage = <any>error);
     }
 }
