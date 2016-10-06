@@ -10,26 +10,26 @@ export class ImageFallbackDirective {
     private EVENT_TYPE: string = 'error';
 
     constructor(el: ElementRef) {
-    this.el = el.nativeElement;
-    this.el.addEventListener(this.EVENT_TYPE, this.onError.bind(this))
+        console.log('fallback');
+        this.el = el.nativeElement;
+        this.el.addEventListener(this.EVENT_TYPE, this.onError.bind(this))
     }
 
     private onError() {
-        alert('error');
-    this.removeEvents();
+        this.removeEvents();
 
-    if (!this.isApplied) {
-      this.isApplied = true;
-      this.el.setAttribute('src', this.imgSrc);
-    }
+        if (!this.isApplied) {
+          this.isApplied = true;
+          this.el.setAttribute('src', this.imgSrc);
+        }
     }
 
     private removeEvents() {
-    this.el.removeEventListener(this.EVENT_TYPE, this.onError);
+        this.el.removeEventListener(this.EVENT_TYPE, this.onError);
     }
 
     ngOnDestroy() {
-    this.removeEvents();
+        this.removeEvents();
     }
     // @Input('src-fallback') fallbackSrc: string;
     // @Input() src: string;

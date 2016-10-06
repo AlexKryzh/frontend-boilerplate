@@ -1,4 +1,4 @@
-<img class="image thumbnail" itemprop="image" [src]="item.image" [alt]="item.title" src-fallback="'/images/default.svg'" />
+<img class="image thumbnail" itemprop="image" [src]="item.image" [alt]="item.title" src-fallback="/images/default.svg" />
 <h1 [innerText]="item.title"></h1>
 <!-- <h1>
     <button class="btn btn-md" ng-class="{'btn-favorite animation-rubber': data.favorite === true, 'btn-default': data.favorite !== true}" ng-click="switchFavorite(data)" title="{{ data.favorite ? 'page.items.favorite_remove' : 'page.items.favorite_add' | translate }}"><span class="icon icon-star"></span></button> 
