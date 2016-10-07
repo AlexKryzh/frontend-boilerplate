@@ -31,32 +31,5 @@ export class ImageFallbackDirective {
     ngOnDestroy() {
         this.removeEvents();
     }
-    // @Input('src-fallback') fallbackSrc: string;
-    // @Input() src: string;
-    // constructor(el: ElementRef, renderer: Renderer) {
-    //    //renderer.setElementStyle(el.nativeElement, 'backgroundColor', 'yellow');
-    // }
-
-    // @HostListener('error') onError() {
-    //     console.log('replace1');
-    //     if (this.url !== this.fallbackUrl) {
-    //         this.replaceSrc();
-    //     }
-    // }
-
-    // updateSrc(){
-    //     console.log('replace2');
-    //     this.src = this.fallbackSrc;
-    // }
 
 }
-
-//     link(scope: any, element: any, attrs: any){
-//         element.bind('error', function() {
-//             if (attrs.src !== attrs.defaultImage) {
-//                 attrs.$set('src', attrs.defaultImage);
-//                 scope.src = attrs.defaultImage;
-//             }
-//         });
-//     }
-// }
