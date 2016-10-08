@@ -10,7 +10,6 @@ export class ImageFallbackDirective {
     private EVENT_TYPE: string = 'error';
 
     constructor(el: ElementRef) {
-        console.log('fallback');
         this.el = el.nativeElement;
         this.el.addEventListener(this.EVENT_TYPE, this.onError.bind(this))
     }
