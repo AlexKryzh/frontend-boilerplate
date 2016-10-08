@@ -8,11 +8,7 @@
 <span class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <span itemprop="price" [innerText]="item.price | currency"></span>
 </span>
-<!--
-<span class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-    <span itemprop="price">{{data.price | currency:'&euro;':0}}</span>
-</span>
-<details class="description" itemprop="description"><summary>{{ "directives.item.show_description" | translate }}</summary>{{::data.description}}</details>
+<details class="description" itemprop="description"><summary><!-- {{directives.item.show_description | translate }} --></summary>{{item.description}}</details>
 <span class="email" itemscope itemtype="http://schema.org/Person">
-    <span itemprop="email">{{::data.email}}</span>
-</span> -->
+    <span itemprop="email" [innerText]="item.email"></span>
+</span>
