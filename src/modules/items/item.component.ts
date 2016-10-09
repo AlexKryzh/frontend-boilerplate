@@ -8,6 +8,10 @@ import { ItemsService } from './items.service';
 export class ItemComponent {
     @Input() item: any;
     constructor () {}
+
+    public switchFavorite(item: any){
+        console.log('item');
+    }
     // ngOnInit() { this.getItems(); }
     // getItems() {
     //     this.itemsService.getItems()

@@ -1,14 +1,10 @@
 <img class="image thumbnail" itemprop="image" [src]="item.image" [alt]="item.title" src-fallback="/images/default.svg" />
-<h1 [innerText]="item.title"></h1>
-<!-- <h1>
-    <button class="btn btn-md" ng-class="{'btn-favorite animation-rubber': data.favorite === true, 'btn-default': data.favorite !== true}" ng-click="switchFavorite(data)" title="{{ data.favorite ? 'page.items.favorite_remove' : 'page.items.favorite_add' | translate }}"><span class="icon icon-star"></span></button> 
-    <span itemprop="name">{{::data.title}}</span>
-</h1>
--->
+<h1><button class="btn btn-md" [ngClass]="{'btn-favorite animation-rubber': item.favorite === true, 'btn-default': item.favorite !== true}" [title]="item.favorite ? 'page.items.favorite_remove' : 'page.items.favorite_add' | translate" (click)="switchFavorite(item)"><span class="icon icon-star"></span></button> 
+    <span itemprop="name" [innerText]="item.title"></span></h1>
 <span class="price" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
     <span itemprop="price" [innerText]="item.price | currency"></span>
 </span>
-<details class="description" itemprop="description"><summary><!-- {{directives.item.show_description | translate }} --></summary>{{item.description}}</details>
+<details class="description" itemprop="description"><summary [innerText]="'directives.item.show_description' | translate"></summary>{{item.description}}</details>
 <span class="email" itemscope itemtype="http://schema.org/Person">
     <span itemprop="email" [innerText]="item.email"></span>
 </span>
