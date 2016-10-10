@@ -3,14 +3,15 @@ import { ItemsService } from './items.service';
 
 @Component({
     selector: 'item',
-    templateUrl: 'item.component.html'
+    templateUrl: 'item.component.html',
+    styleUrls: [ 'item.component.css' ]
 })
 export class ItemComponent {
     @Input() item: any;
     constructor () {}
 
     public switchFavorite(item: any){
-        console.log('item');
+        item.favorite = item.favorite? false : true;
     }
     // ngOnInit() { this.getItems(); }
     // getItems() {

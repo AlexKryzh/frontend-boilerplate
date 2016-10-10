@@ -1,0 +1,41 @@
+@import '../../styles/variables';
+
+h1{
+    font-size: 18px;
+    .btn{
+        position: relative;
+        top: -4px;
+        font-size: 26px;
+        line-height: 23px;
+        margin-right: 10px;
+        &:focus{
+            outline: none;
+        }
+    }
+    .btn-default{
+        .icon{
+            color: $gray-less-lighter;
+        }
+    }
+}
+.image{
+    background: #ccc;
+    height: auto;
+    width: 100%;
+}
+.price{
+    color: #fff;
+    font-size: 24px;
+    font-weight: 400;
+    position: absolute;
+    right: 20px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,.7);
+    top: 10px;
+    z-index: 10;
+}
+.description, .email{
+    display: block;
+}
+.email{
+    margin-top: 10px;
+}
