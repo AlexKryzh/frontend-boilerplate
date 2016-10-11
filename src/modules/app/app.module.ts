@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { Http, HttpModule } from '@angular/http';
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate';
 
@@ -19,7 +18,6 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
 @NgModule({
     imports: [ 
         BrowserModule,
-        FormsModule,
         HttpModule,
         TranslateModule.forRoot({ 
           provide: TranslateLoader,
@@ -33,7 +31,7 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
         SharedModule.forRoot()
       ],
      declarations: [ AppComponent, AppHeaderComponent, AppLoadingComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
-    exports: [ HttpModule, FormsModule, TranslateModule ],
+    exports: [ HttpModule, TranslateModule ],
     providers: [ AppRoutingProviders ],
     bootstrap: [ AppComponent ]
 })
