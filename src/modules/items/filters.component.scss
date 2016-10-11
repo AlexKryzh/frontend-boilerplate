@@ -1,0 +1,14 @@
+@import '../../styles/variables';
+
+@media screen and (min-width: 1px) and (max-width : $screen-sm - 1){
+    .btn-favorite{
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width : $screen-sm){
+    .btn-favorite{
+        float: right;
+    }
+}
