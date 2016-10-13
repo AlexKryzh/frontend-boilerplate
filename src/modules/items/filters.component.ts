@@ -7,5 +7,15 @@ import { Component, Input, NgModule } from '@angular/core';
 })
 export class FiltersComponent {
     @Input() options: any;
+    @Input() reload: any;
     constructor () {}
+
+    onInit(){
+        this.options.sort = this.options.sorts[0];
+    }
+
+    public reloadThis(){
+        this.reload();
+        console.log(this.options);
+    }
 }

@@ -138,10 +138,7 @@ faviconData.json
 /src/fonts/icons.woff
 /src/styles/_icons.scss
 /src/styles/_fonts.scss
-src/scripts/*_tpl.js
-src/modules/**/*_tpl.js
-src/modules/**/*_css.js
-src/scripts/settings/constants.ts
+src/modules/**/*.css
 
 # Others
 *.[Cc]ache
