@@ -84,4 +84,8 @@ export class ItemsComponent {
     public reload(){
         console.log('reload');
     }
+
+    public switchFavoritesList(){
+        console.log('switchFavoritesList');
+    }
 }

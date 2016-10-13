@@ -9,10 +9,12 @@
     </div>
     <div class="row">
         <div class="col-xs-6 col-sm-4 col-md-3">
-            <input type="search" id="searchProperties" class="form-control" [(ngModel)]="options.filter" (ngModelChange)="reloadItems()" placeholder="{{ 'directives.items.filter_placeholder' | translate }}">
+            <input type="search" name="search" id="searchProperties" class="form-control" [(ngModel)]="options.filter" (ngModelChange)="reloadThis()" placeholder="{{ 'directives.items.filter_placeholder' | translate }}">
         </div>
         <div class="col-xs-6 col-sm-4 col-md-3">
-            <select id="orderProperties" class="form-control" *ngFor="let sort of options.sorts" [(ngModel)]="options.sort"></select> <!-- ng-options="( 'directives.filter_options.sorting.' + sort.label | translate) for sort in options.sorts" -->
+            <select id="orderProperties" class="form-control" name="sort" [(ngModel)]="options.sort">
+                <option *ngFor="let sort of options.sorts" [value]="sort" [innerText]="'directives.filter_options.sorting.' + sort.label | translate"></option>
+            </select>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-6">
             <button class="btn btn-favorite" (click)="switchFavoritesList()">{{ "page.items.favorite_items" | translate }}</button>
