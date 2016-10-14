@@ -15,7 +15,6 @@ export class FiltersComponent {
     }
 
     public reloadThis(){
-        this.reload();
-        console.log(this.options);
+        this.reload(this.options.filter, this.options.sort);
     }
 }

@@ -12,8 +12,8 @@
             <input type="search" name="search" id="searchProperties" class="form-control" [(ngModel)]="options.filter" (ngModelChange)="reloadThis()" placeholder="{{ 'directives.items.filter_placeholder' | translate }}">
         </div>
         <div class="col-xs-6 col-sm-4 col-md-3">
-            <select id="orderProperties" class="form-control" name="sort" [(ngModel)]="options.sort">
-                <option *ngFor="let sort of options.sorts" [value]="sort" [innerText]="'directives.filter_options.sorting.' + sort.label | translate"></option>
+            <select id="orderProperties" class="form-control" name="sort" [(ngModel)]="options.sort" (ngModelChange)="reloadThis()">
+                <option *ngFor="let sort of options.sorts" [ngValue]="sort" [innerText]="'directives.filter_options.sorting.' + sort.label | translate"></option>
             </select>
         </div>
         <div class="col-xs-12 col-sm-4 col-md-6">

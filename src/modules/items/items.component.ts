@@ -81,8 +81,10 @@ export class ItemsComponent {
                error =>  this.errorMessage = <any>error);
     }
 
-    public reload(){
-        console.log('reload');
+    public reload(search: any, sort: any){
+        // filter/sorts goes here
+        console.log(search);
+        console.log(sort);
     }
 
     public switchFavoritesList(){
