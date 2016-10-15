@@ -8,6 +8,7 @@ import { Component, Input, NgModule } from '@angular/core';
 export class FiltersComponent {
     @Input() options: any;
     @Input() reload: any;
+    @Input() items: any;
     constructor () {}
 
     onInit(){
@@ -15,6 +16,6 @@ export class FiltersComponent {
     }
 
     public reloadThis(){
-        this.reload(this.options.filter, this.options.sort);
+        this.reload(this.options.filter, this.options.sort, this.items);
     }
 }

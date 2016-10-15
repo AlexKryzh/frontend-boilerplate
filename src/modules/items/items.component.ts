@@ -8,6 +8,7 @@ import { ItemsService } from './items.service';
 export class ItemsComponent {
     errorMessage: string;
     items: any;
+    filter: string;
     options: any;
     mode = 'Observable';
     constructor (private itemsService: ItemsService) {
@@ -79,12 +80,25 @@ export class ItemsComponent {
              .subscribe(
                items => this.items = items,
                error =>  this.errorMessage = <any>error);
+             console.log(this.items);
     }
 
-    public reload(search: any, sort: any){
-        // filter/sorts goes here
-        console.log(search);
-        console.log(sort);
+    public reload(filter: string, sort: any, items: any){
+        console.log(items);
+        //this.filter = filter;
+        //let items = this.items;
+        //console.log(this.getItems());
+        //let filtered = items.filter(this.search);
+
+        // function isBigEnough(value) {
+        //     return value >= 10;
+        // }
+        //var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+        // filtered is [12, 130, 44]
+    }
+
+    private search(obj: any){
+        console.log(obj);
     }
 
     public switchFavoritesList(){
