@@ -83,8 +83,9 @@ export class ItemsComponent {
              console.log(this.items);
     }
 
-    public reload(filter: string, sort: any, items: any){
-        console.log(items);
+    public reload(filter: string, sort: any){
+        //filter and sort goes here
+        console.log(this.items);
         //this.filter = filter;
         //let items = this.items;
         //console.log(this.getItems());

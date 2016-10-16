@@ -70,12 +70,19 @@
 }
 
 @media screen and (min-width: 1px) and (max-width : $screen-sm - 1){
+    .btn-favorite{
+        margin-top: 10px;
+        width: 100%;
+    }
     .col-xs-6:nth-child(2n + 3){
         clear: both;
     }
 }
 
 @media screen and (min-width : $screen-sm){
+    .btn-favorite{
+        float: right;
+    }
     .col-sm-4:nth-child(3n + 4){
         clear: both;
     }

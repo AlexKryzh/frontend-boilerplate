@@ -138,7 +138,7 @@ faviconData.json
 /src/fonts/icons.woff
 /src/styles/_icons.scss
 /src/styles/_fonts.scss
-src/modules/**/*.css
+/src/modules/**/*.css
 
 # Others
 *.[Cc]ache
