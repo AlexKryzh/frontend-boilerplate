@@ -13,10 +13,10 @@
             </div>
             <div class="row">
                 <div class="col-xs-6 col-sm-4 col-md-3">
-                    <input type="search" name="search" id="searchProperties" class="form-control" [(ngModel)]="options.filter" (ngModelChange)="reload()" placeholder="{{ 'directives.items.filter_placeholder' | translate }}">
+                    <input type="search" name="search" id="searchProperties" class="form-control" [(ngModel)]="options.filter" (ngModelChange)="filter()" placeholder="{{ 'directives.items.filter_placeholder' | translate }}">
                 </div>
                 <div class="col-xs-6 col-sm-4 col-md-3">
-                    <select id="orderProperties" class="form-control" name="sort" [(ngModel)]="options.sort" (ngModelChange)="reload()">
+                    <select id="orderProperties" class="form-control" name="sort" [(ngModel)]="options.sort" (ngModelChange)="sort()">
                         <option *ngFor="let sort of options.sorts" [ngValue]="sort" [innerText]="'directives.filter_options.sorting.' + sort.label | translate"></option>
                     </select>
                 </div>
@@ -27,7 +27,7 @@
         </form>
     </header>
     <ul ng-hide="items.length === 0" class="row items" itemscope itemtype="http://schema.org/ItemList">
-        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of items">
+        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of filtered">
             <article class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
                 <item [item]="item"></item>
             </article>
