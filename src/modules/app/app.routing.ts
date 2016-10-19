@@ -1,7 +1,7 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AppPageNotFoundComponent } from './app.pagenotfound.component.ts';
+import { AppPageNotFoundComponent } from './app.pagenotfound.component';
 import { HomeRoutes } from '../home/index';
 import { ItemsRoutes } from '../items/index';
 import { StylebookRoutes } from '../stylebook/index';

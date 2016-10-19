@@ -9,7 +9,7 @@ import { AppLoadingComponent } from './app.loading.component';
 import { AppHeaderComponent } from './app.header.component';
 import { AppFooterComponent } from './app.footer.component';
 import { AppLanguagesComponent } from './app.languages.component';
-import { AppPageNotFoundComponent } from './app.pagenotfound.component.ts';
+import { AppPageNotFoundComponent } from './app.pagenotfound.component';
 import { HomeModule } from '../home/home.module';
 import { ItemsModule } from '../items/items.module';
 import { StylebookModule } from '../stylebook/stylebook.module';
