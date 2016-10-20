@@ -1,7 +1,6 @@
 <section>
     <header>
         <h1>{{ "page.items.title" | translate }}</h1>
-<!--         <filters [reload]="reload" [options]="options" [items]="items" switch-favorites-list="switchFavoritesList"></filters> -->
         <form ng-hide="items.length === 0" class="properties">
             <div class="row labels">
                 <div class="col-xs-6 col-sm-4 col-md-3">
@@ -27,7 +26,7 @@
         </form>
     </header>
     <ul ng-hide="items.length === 0" class="row items" itemscope itemtype="http://schema.org/ItemList">
-        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of filtered">
+        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of ResultItems">
             <article class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
                 <item [item]="item"></item>
             </article>
