@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ItemsService } from './items.service';
+import * as _ from 'lodash';
 
 @Component({
     templateUrl: 'items.component.html',
@@ -7,8 +8,8 @@ import { ItemsService } from './items.service';
 })
 export class ItemsComponent {
     errorMessage: string;
-    items: any;
-    filtered: any;
+    OriginItems: any;
+    ResultItems: any;
     options: any;
     mode = 'Observable';
     constructor (private itemsService: ItemsService) {
@@ -79,24 +80,27 @@ export class ItemsComponent {
         this.itemsService.getItems()
              .subscribe(
                items => { 
-                   this.items = items,
-                   this.filtered = items 
+                   this.OriginItems = items,
+                   this.ResultItems = items 
                },
                error =>  this.errorMessage = <any>error);
     }
 
     public filter(){
-        //filter this.items and save it in this.filtered
-        console.log(this.options.filter);
-        console.log(this.items.length);
-        console.log(this.filtered.length);
+        if(this.options.filter.length > 0){
+            let filter = this.options.filter.toLowerCase();
+            this.ResultItems = _.filter(this.OriginItems, function(o: any){
+                return o.title.toLowerCase().indexOf(filter) >= 0;
+            });
+        }else{
+            this.ResultItems = this.OriginItems;
+        }
+        this.sort();
     }
 
     public sort(){
-        //sort this.filtered
+        //sort this.ResultItems
         console.log(this.options.sort);
-        console.log(this.items.length);
-        console.log(this.filtered.length);
     }
 
     public switchFavoritesList(){
