@@ -86,21 +86,40 @@ export class ItemsComponent {
                error =>  this.errorMessage = <any>error);
     }
 
+    public filterProperties(obj: any, properties: any){
+        let filter = this.options.filter.toLowerCase();
+        let filtered = properties.filter(function(property: string){
+            return obj[property].toLowerCase().indexOf(filter) >= 0;
+        });
+        return filtered.length;
+    }
+
     public filter(){
         if(this.options.filter.length > 0){
-            let filter = this.options.filter.toLowerCase();
-            this.ResultItems = _.filter(this.OriginItems, function(o: any){
-                return o.title.toLowerCase().indexOf(filter) >= 0;
-            });
+            let filterItem = (item: any) => {
+                return this.filterProperties(item, ['title', 'description']);
+            }
+            this.ResultItems = this.OriginItems.filter(filterItem);
         }else{
             this.ResultItems = this.OriginItems;
         }
-        this.sort();
+        if(this.options.sort.expression){
+            this.sort();
+        }
     }
 
     public sort(){
-        //sort this.ResultItems
-        console.log(this.options.sort);
+        let sort = this.options.sort;
+        if(this.options.sort.expression){
+            this.ResultItems.sort(function(a: any, b: any){
+                let x = a[sort.expression].toLowerCase();
+                let y = b[sort.expression].toLowerCase();
+                return x < y ? -1 : x > y ? 1 : 0;
+            });
+        }else{
+            //default sort
+            this.filter();
+        }
     }
 
     public switchFavoritesList(){
