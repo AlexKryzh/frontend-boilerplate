@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ItemsService } from './items.service';
-import * as _ from 'lodash';
 
 @Component({
     templateUrl: 'items.component.html',
@@ -79,7 +78,8 @@ export class ItemsComponent {
     private get() {
         this.itemsService.getItems()
              .subscribe(
-               items => { 
+               items => {
+                   //TODO: make deep copy, not reference
                    this.OriginItems = items,
                    this.ResultItems = items 
                },
@@ -95,13 +95,14 @@ export class ItemsComponent {
     }
 
     public filter(){
+        console.log(this.OriginItems);
         if(this.options.filter.length > 0){
             let filterItem = (item: any) => {
                 return this.filterProperties(item, ['title', 'description']);
             }
             this.ResultItems = this.OriginItems.filter(filterItem);
         }else{
-            this.ResultItems = this.OriginItems;
+            this.ResultItems = items;
         }
         if(this.options.sort.expression){
             this.sort();
