@@ -19,34 +19,34 @@ export class ItemsComponent {
                 reverse: false
             },
             {
-                label: 'title_asc',
-                expression: 'title',
-                reverse: true
-            },
-            {
-                label: 'title_desc',
+                label: 'title',
                 expression: 'title',
                 reverse: false
             },
             {
-                label: 'description_asc',
-                expression: 'description',
+                label: 'title_reverse',
+                expression: 'title',
                 reverse: true
             },
             {
-                label: 'description_desc',
+                label: 'description',
                 expression: 'description',
                 reverse: false
             },
             {
-                label: 'email_asc',
-                expression: 'email',
+                label: 'description_reverse',
+                expression: 'description',
                 reverse: true
             },
             {
-                label: 'email_desc',
+                label: 'email',
                 expression: 'email',
                 reverse: false
+            },
+            {
+                label: 'email_reverse',
+                expression: 'email',
+                reverse: true
             },
             {
                 label: 'price_highest',
@@ -95,14 +95,13 @@ export class ItemsComponent {
     }
 
     public filter(){
-        console.log(this.OriginItems);
         if(this.options.filter.length > 0){
             let filterItem = (item: any) => {
                 return this.filterProperties(item, ['title', 'description']);
             }
             this.ResultItems = this.OriginItems.filter(filterItem);
         }else{
-            this.ResultItems = items;
+            this.ResultItems = this.OriginItems;
         }
         if(this.options.sort.expression){
             this.sort();
@@ -120,6 +119,9 @@ export class ItemsComponent {
         }else{
             //default sort
             this.filter();
+        }
+        if(this.options.sort.reverse){
+            this.ResultItems.reverse();
         }
     }
 
