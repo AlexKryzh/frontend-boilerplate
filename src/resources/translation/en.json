@@ -6,12 +6,12 @@
         "filter_options":{
             "sorting":{
                 "default": "by default",
-                "title_asc": "title (ascending)",
-                "title_desc": "title (descending)",
-                "description_asc": "description (ascending)",
-                "description_desc": "description (descending)",
-                "email_asc": "email (ascending)",
-                "email_desc": "email (descending)",
+                "title": "title",
+                "title_reverse": "title (reverse)",
+                "description": "description",
+                "description_reverse": "description (reverse)",
+                "email": "email",
+                "email_reverse": "email (reverse)",
                 "price_lowest": "lowest price",
                 "price_highest": "highest price"
             }
