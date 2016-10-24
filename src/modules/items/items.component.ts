@@ -14,11 +14,6 @@ export class ItemsComponent {
     constructor (private itemsService: ItemsService) {
         let sorts =  [
             {
-                label: 'default',
-                expression: false,
-                reverse: false
-            },
-            {
                 label: 'title',
                 expression: 'title',
                 reverse: false
@@ -79,9 +74,9 @@ export class ItemsComponent {
         this.itemsService.getItems()
              .subscribe(
                items => {
-                   //TODO: make deep copy, not reference
-                   this.OriginItems = items,
-                   this.ResultItems = items 
+                   this.OriginItems = items;
+                   this.ResultItems = items;
+                   this.sort(); 
                },
                error =>  this.errorMessage = <any>error);
     }
