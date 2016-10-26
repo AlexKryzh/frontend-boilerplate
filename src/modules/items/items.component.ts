@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ItemsService } from './items.service';
+import { FilterService } from '../app/app.filter.service';
+import { SortService } from '../app/app.sort.service';
 
 @Component({
     templateUrl: 'items.component.html',
@@ -11,7 +13,7 @@ export class ItemsComponent {
     ResultItems: any;
     options: any;
     mode = 'Observable';
-    constructor (private itemsService: ItemsService) {
+    constructor (private ItemsService: ItemsService, private FilterService: FilterService, private SortService: SortService) {
         let sorts =  [
             {
                 label: 'title',
@@ -71,7 +73,7 @@ export class ItemsComponent {
     }
 
     private get() {
-        this.itemsService.getItems()
+        this.ItemsService.getItems()
              .subscribe(
                items => {
                    this.OriginItems = items;
@@ -81,58 +83,18 @@ export class ItemsComponent {
                error =>  this.errorMessage = <any>error);
     }
 
-    public filterProperties(obj: any, properties: any){
-        let filter = this.options.filter.toLowerCase();
-        let filtered = properties.filter(function(property: string){
-            return obj[property].toLowerCase().indexOf(filter) >= 0;
-        });
-        return filtered.length;
-    }
-
     public filter(){
-        if(this.options.filter.length > 0){
-            let filterItem = (item: any) => {
-                return this.filterProperties(item, ['title', 'description']);
-            }
-            this.ResultItems = this.OriginItems.filter(filterItem);
-        }else{
-            this.ResultItems = this.OriginItems;
-        }
+        this.ResultItems = this.FilterService.get(this.options.filter, this.OriginItems);
         if(this.options.sort.expression){
             this.sort();
         }
     }
 
     public sort(){
-        let sort = this.options.sort;
         if(this.options.sort.expression){
-            this.ResultItems.sort(function(a: any, b: any){
-                if(typeof a[sort.expression] !== typeof b[sort.expression]){
-                    a[sort.expression] = a[sort.expression].toString();
-                    b[sort.expression] = b[sort.expression].toString();
-                }
-                var result : any;
-                switch(typeof a[sort.expression]){
-                    case 'number':
-                        result = a[sort.expression] - b[sort.expression];
-                        break;
-                    case 'string':
-                        let x = a[sort.expression].toLowerCase();
-                        let y = b[sort.expression].toLowerCase();
-                        result = x < y ? -1 : x > y ? 1 : 0;
-                        break;
-                    default:
-                        result = 0;
-                        break;
-                }
-                return result;
-            });
+            this.ResultItems = this.SortService.get(this.options.sort, this.OriginItems);
         }else{
-            //default sort
             this.filter();
-        }
-        if(this.options.sort.reverse){
-            this.ResultItems.reverse();
         }
     }
 
