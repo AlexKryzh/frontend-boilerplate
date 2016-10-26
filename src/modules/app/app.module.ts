@@ -14,6 +14,8 @@ import { HomeModule } from '../home/home.module';
 import { ItemsModule } from '../items/items.module';
 import { StylebookModule } from '../stylebook/stylebook.module';
 import { AppRouting, AppRoutingProviders } from './app.routing';
+import { FilterService } from './app.filter.service';
+import { SortService } from './app.sort.service';
 
 @NgModule({
     imports: [ 
@@ -32,7 +34,7 @@ import { AppRouting, AppRoutingProviders } from './app.routing';
       ],
      declarations: [ AppComponent, AppHeaderComponent, AppLoadingComponent, AppFooterComponent, AppPageNotFoundComponent, AppLanguagesComponent ],
     exports: [ HttpModule, TranslateModule ],
-    providers: [ AppRoutingProviders ],
+    providers: [ AppRoutingProviders, FilterService, SortService ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
