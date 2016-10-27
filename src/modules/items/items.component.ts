@@ -92,7 +92,7 @@ export class ItemsComponent {
 
     public sort(){
         if(this.options.sort.expression){
-            this.ResultItems = this.SortService.get(this.options.sort, this.OriginItems);
+            this.ResultItems = this.SortService.get(this.options.sort, this.ResultItems);
         }else{
             this.filter();
         }
