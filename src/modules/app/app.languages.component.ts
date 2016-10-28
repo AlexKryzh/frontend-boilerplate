@@ -4,14 +4,18 @@ import { TranslateService } from 'ng2-translate';
 
 @Component({
     selector: 'app-languages',
-    templateUrl: 'app.languages.component.html'
+    templateUrl: 'app.languages.component.html',
+    styleUrls: [ 'app.languages.component.css' ]
 })
 export class AppLanguagesComponent {
-    languages: string[]
+    languages: string[];
+    current: string;
     constructor(private translate: TranslateService){
         this.languages = CONFIG.languages;
+        this.current = this.translate.currentLang;
     }
-    setLanguage(language: string){
+    set(language: string){
         this.translate.use(language);
+        this.current = language;
     }
 }

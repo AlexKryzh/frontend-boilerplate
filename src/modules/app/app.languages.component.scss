@@ -1,0 +1,11 @@
+@import '../../styles/variables';
+
+.language-label{
+    text-transform: capitalize;
+}
+
+.language{
+    a{
+        cursor: pointer;
+    }
+}
