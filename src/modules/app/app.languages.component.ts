@@ -17,5 +17,6 @@ export class AppLanguagesComponent {
     set(language: string){
         this.translate.use(language);
         this.current = language;
+        localStorage.setItem('language', language);
     }
 }
