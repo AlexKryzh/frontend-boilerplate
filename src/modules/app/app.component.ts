@@ -11,10 +11,16 @@ export class AppComponent {
     constructor(private translate: TranslateService){
         this.getLanguages();
         translate.addLangs(this.languages);
-        translate.setDefaultLang(this.languages[1]);
-
-         let browserLang = translate.getBrowserLang();
-        translate.use(browserLang.match(/en|es/) ? browserLang : this.languages[1]);
+        let localStorageLang = localStorage.getItem('language');
+        let language: string;
+        if(localStorageLang){
+            language = localStorageLang;
+        }else{
+            let browserLang = translate.getBrowserLang();
+            language = browserLang.match(/en|es/) ? browserLang : this.languages[1];
+        }
+        translate.setDefaultLang(language);
+        translate.use(language);
     }
     getLanguages(){
         this.languages = [];
