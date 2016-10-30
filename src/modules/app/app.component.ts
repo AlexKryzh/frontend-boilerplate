@@ -17,7 +17,7 @@ export class AppComponent {
             language = localStorageLang;
         }else{
             let browserLang = translate.getBrowserLang();
-            language = browserLang.match(/en|es/) ? browserLang : this.languages[1];
+            language = this.languages.indexOf(browserLang) !==-1 ? browserLang : this.languages[1];
         }
         translate.setDefaultLang(language);
         translate.use(language);
