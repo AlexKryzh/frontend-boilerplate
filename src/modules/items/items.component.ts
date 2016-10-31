@@ -9,8 +9,7 @@ import { SortService } from '../app/app.sort.service';
 })
 export class ItemsComponent {
     errorMessage: string;
-    OriginItems: any;
-    ResultItems: any;
+    items: any;
     options: any;
     mode = 'Observable';
     constructor (private ItemsService: ItemsService, private FilterService: FilterService, private SortService: SortService) {
@@ -76,15 +75,14 @@ export class ItemsComponent {
         this.ItemsService.getItems()
              .subscribe(
                items => {
-                   this.OriginItems = items;
-                   this.ResultItems = items;
+                   this.items = items;
                    this.sort(); 
                },
                error =>  this.errorMessage = <any>error);
     }
 
     public filter(){
-        this.ResultItems = this.FilterService.get(this.options.filter, this.OriginItems);
+        this.items = this.FilterService.get(this.options.filter, this.items);
         if(this.options.sort.expression){
             this.sort();
         }
@@ -92,7 +90,7 @@ export class ItemsComponent {
 
     public sort(){
         if(this.options.sort.expression){
-            this.ResultItems = this.SortService.get(this.options.sort, this.ResultItems);
+            this.items = this.SortService.get(this.options.sort, this.items);
         }else{
             this.filter();
         }
