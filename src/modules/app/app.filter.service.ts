@@ -10,10 +10,10 @@ export class FilterService {
         return filtered.length;
     }
 
-    get (filter: any, items: any) {
+    get (filter: any, items: any, properties: any) {
         if(filter.length > 0){
             let filterItem = (item: any) => {
-                return this.filterProperties(filter.toLowerCase(), item, ['title', 'description']);
+                return this.filterProperties(filter.toLowerCase(), item, properties);
             }
             return items.filter(filterItem);
         }else{

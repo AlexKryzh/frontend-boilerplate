@@ -82,7 +82,7 @@ export class ItemsComponent {
     }
 
     public filter(){
-        this.items = this.FilterService.get(this.options.filter, this.items);
+        this.items = this.FilterService.get(this.options.filter, this.items, ['title', 'description']);
         if(this.options.sort.expression){
             this.sort();
         }
