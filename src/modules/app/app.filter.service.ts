@@ -11,13 +11,13 @@ export class FilterService {
     }
 
     get (filter: any, items: any, properties: any) {
-        if(filter.length > 0){
-            let filterItem = (item: any) => {
-                return this.filterProperties(filter.toLowerCase(), item, properties);
+        for(let item of items){
+            if(filter.length>0){
+                item.hidden = !this.filterProperties(filter.toLowerCase(), item, properties);
+            }else{
+                item.hidden = false;
             }
-            return items.filter(filterItem);
-        }else{
-            return items;
         }
+        return items;
     }
 }
