@@ -8,6 +8,9 @@
             font-size: 18px;
         }
     }
+    .col-item:empty{
+        display: none;
+    }
     li{
         list-style: none;
     }

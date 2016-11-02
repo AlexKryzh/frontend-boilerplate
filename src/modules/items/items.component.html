@@ -26,11 +26,13 @@
         </form>
     </header>
     <ul ng-hide="items.length === 0" class="row items" itemscope itemtype="http://schema.org/ItemList">
-        <li class="col-xs-6 col-sm-4 col-item" *ngFor="let item of ResultItems">
-            <article *ngIf="!item.hidden" class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
-                <item [item]="item"></item>
-            </article>
-        </li>
+        <template ngFor let-item [ngForOf]="items">
+            <li class="col-xs-6 col-sm-4 col-item" *ngIf="!item.hidden">
+                <article  class="item" itemprop="itemListElement" itemscope itemtype="http://schema.org/Product">
+                    <item [item]="item"></item>
+                </article>
+            </li>
+        </template>
     </ul>
     <footer>
     </footer>
